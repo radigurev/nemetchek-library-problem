@@ -1,0 +1,95 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Немечек</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/4aa5357101.js" crossorigin="anonymous"></script>
+    <script src="script.js" defer></script>
+</head> 
+<body>
+
+    <div class="nav-div">
+       <div onclick="sorted()" class="wrapper" title="Sort">
+        <span class="fa-stack fa-lg">
+            <i class="fa-solid fa-circle fa-stack-2x"></i>
+            <i class="fa-solid fa-sort fa-stack-1x fa-inverse"></i>
+          </span>
+       </div>
+       <div onclick="tableClick()" class="wrapper" title="Add book">
+        <span class="fa-stack fa-lg">
+            <i class="fa-solid fa-circle fa-stack-2x"></i>
+            <i id="edit-button" class="fa-solid fa-pen fa-stack-1x fa-inverse"></i>
+          </span>
+       </div>
+    </div>
+
+    <section id="table" class="tablee">
+        <div class="tbl-header">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <thead>
+              <tr>
+                <th>№</th>
+                <th>Автор</th>
+                <th>Заглавие</th>
+                <th>Жанр</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="tbl-content">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>brat</td>
+                <td>Brat</td>
+                <td>bard</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>manqk</td>
+                <td>Manqk</td>
+                <td>mainqk</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>aaa</td>
+                <td>Aaaa</td>
+                <td>az</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="add-books" class="add-books">
+                <div class="background">
+                        <input type="text" placeholder="Заглавие">
+                        <input type="text" placeholder="Автор">
+                        <select name="" id="">
+                            <option value="">cronge</option>
+                        </select>
+                </div>
+      </section>
+
+      <div class="sorted">
+           <div class="row">
+            <p>Ad</p>
+            <p>Bd</p>
+            <p>Vv</p>
+           </div>
+           <div class="row">
+            <p>Gg</p>
+            <p>Dd</p>
+            <p>Ee</p>
+           </div>
+           <div class="row">
+            <p>Jj</p>
+            <p>Zz</p>
+            <p>Ii</p>
+           </div>
+      </div>
+</body>
+</html>
