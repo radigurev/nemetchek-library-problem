@@ -1,0 +1,92 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Немечек</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://kit.fontawesome.com/4aa5357101.js" crossorigin="anonymous"></script>
+    <script src="/js/script.js" defer></script>
+</head> 
+<body>
+
+    <div class="nav-div">
+       <div onclick="sort()" class="wrapper" title="Sort">
+        <span class="fa-stack fa-lg">
+            <i class="fa-solid fa-circle fa-stack-2x"></i>
+            <i class="fa-solid fa-sort fa-stack-1x fa-inverse"></i>
+          </span>
+       </div>
+       <div onclick="tableClick()" class="wrapper" title="Add book">
+        <span class="fa-stack fa-lg">
+            <i class="fa-solid fa-circle fa-stack-2x"></i>
+            <i id="edit-button" class="fa-solid fa-pen fa-stack-1x fa-inverse"></i>
+          </span>
+       </div>
+    </div>
+
+    <p th:if="${window}" id="is-window-open"></p>
+
+    <section id="table" class="tablee">
+        <div class="tbl-header">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <thead>
+              <tr>
+                <th>№</th>
+                <th class="header"><i class="icon fa-solid"></i> Автор</th>
+                <th class="header"><i class="icon fa-solid"></i> Заглавие</th>
+                <th class="header"><i class="icon fa-solid"></i> Жанр</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="tbl-content">
+          <table id="myTable" cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+              <tr th:each="b,iter : ${books}">
+                <td th:text="${iter.index+1}">1</td>
+                <td th:text="${b.author}">brat</td>
+                <td th:text="${b.name}">Brat</td>
+                <td th:text="${b.genre.name()}">bard</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    <form th:action="@{/}" th:method="POST" th:object="${bookBindingModel}">
+        <section id="add-books" class="add-books">
+            <div class="background">
+                <input th:field="*{name}" type="text" placeholder="Заглавие">
+                <input th:field="*{author}" type="text" placeholder="Автор">
+                <select th:field="*{genre}" name="" id="">
+                    <option th:each="c : ${T(com.example.project.model.entity.Genres).values()}" th:value="${c.name()}" th:text="${c.name()}">cronge</option>
+                </select>
+                <p th:if="${isFull}" style="color: rgba(255,255,255,0.56)" >Вече има 100 книги!</p>
+                <button class="btn">submit</button>
+            </div>
+        </section>
+    </form>
+
+      <!-- <div class="sorted">
+           <div class="row">
+            <p>Ad</p>
+            <p>Bd</p>
+            <p>Vv</p>
+           </div>
+           <div class="row">
+            <p>Gg</p>
+            <p>Dd</p>
+            <p>Ee</p>
+           </div>
+           <div class="row">
+            <p>Jj</p>
+            <p>Zz</p>
+            <p>Ii</p>
+           </div>
+      </div> -->
+</body>
+</html>
